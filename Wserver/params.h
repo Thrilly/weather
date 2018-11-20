@@ -46,7 +46,7 @@ int check_params(int argc, char *argv[])
             if (argv[i+1] != NULL) { // control if params value exist
                 strcpy(IP, argv[i+1]); // assing params
             } else { // else print error
-                printfc("[FAIL] - IP ms interval is expected after ip parameter\n", "red");
+                printfc("[FAIL] - IP is expected after ip parameter\n", "red");
                 return 0;
             }
         // *********** END IP ***********
@@ -95,7 +95,7 @@ int check_params(int argc, char *argv[])
         printf("\e[1;1H\e[2J");
         printf("Server is");
         printfc(" running \n", "green");
-        
+
     }
     return 1;
 }
