@@ -14,7 +14,7 @@
 
 typedef struct s_data_weather
 {
-    int                     dep;
+    char*                   dep;
     char*                   dep_name;
     char*                   weather;
     int                     temp;
@@ -28,8 +28,9 @@ void            printfc(char* str, char* color);
 char            *substr(char *src,int pos,int len);
 
 // DDW functions
-DepDataWeather	*add_ddw(DepDataWeather *list, int dep, char* dep_name, char* weather, int temp);
-// DepDataWeather	*edit_ddw(DepDataWeather *list, int dep, char* dep_name, char* weather, int temp);
-DepDataWeather  *search_ddw(DepDataWeather *list, int dep);
-DepDataWeather  *delete_ddw(DepDataWeather *list, int dep);
+DepDataWeather	*add_ddw(DepDataWeather *list, char* dep, char* dep_name, char* weather, int temp);
+DepDataWeather	*edit_ddw(DepDataWeather *list, char* dep, char* weather, int temp);
+DepDataWeather	*insert_ddw(DepDataWeather *list, char* lineCsv);
+DepDataWeather  *search_ddw(DepDataWeather *list, char* dep);
+DepDataWeather  *delete_ddw(DepDataWeather *list, char* dep);
 int              count_ddw(DepDataWeather *list);

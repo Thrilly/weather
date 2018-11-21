@@ -1,4 +1,4 @@
-#define WAIT_BEFORE_START_SERVER 3
+#define WAIT_BEFORE_START_SERVER 1
 
 
 char REQPORT[]  = "4242";

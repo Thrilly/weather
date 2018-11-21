@@ -13,9 +13,8 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    // Players Init
-    // DepDataWeather *list_data;
-    // list_data = NULL;
+    // DDW Init
+    // DepDataWeather *list_data = NULL;
 
     // Connect to socket REQ
     zsock_t *req = zsock_new(ZMQ_REQ);
@@ -26,19 +25,36 @@ int main(int argc, char *argv[])
     zsock_t *chat_srv_socket = zsock_new(ZMQ_PUB);
     zsock_bind(chat_srv_socket, "tcp://*:%s", PUBPORT);
 
-
+    int i = 0;
 
     // Processus
     while (!zsys_interrupted) {
+
+        // Send req msg to router
         zstr_sendf(req, "france");
-        if (VERBOSE == 1) { printf("SEND REQUEST ...\n"); }
+        // if (VERBOSE == 1) { printf("SEND REQUEST ...\n"); }
 
+        // Recv message from router
         char *message = zstr_recv(req);
-        if (VERBOSE == 1) { printf("RESPONSE : %s\n\n", message);}
-        zstr_free(&message);
+        char *tmp = message;
+        char *line;
+        const char eol[2] = "\n";
 
-        zstr_sendf(chat_srv_socket, "#all: %s\n", "TEST");
-        sleep(2);
+        // Parse CSV Lines
+        line = strtok(tmp, eol);
+
+        // Insert all CSV lines in Chain List
+        while( line != NULL ) {
+            // printf("%s\n", line);
+            zstr_sendf(chat_srv_socket, "%s", line);
+            usleep(1000);
+            // list_data = insert_ddw(list_data, );
+            line = strtok(NULL, eol);
+        }
+        // if (VERBOSE == 1) { printf("RESPONSE : %s\n\n", message);}
+        zstr_free(&message);
+        i++;
+        sleep(5);
     }
     printf("\e[1;1H\e[2J");
     printf("Server ");
