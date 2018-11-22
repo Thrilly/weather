@@ -16,7 +16,6 @@ DepDataWeather	*add_ddw(DepDataWeather *list, char* dep, char* dep_name, char* w
 
 DepDataWeather	*insert_ddw(DepDataWeather *list, char* lineCsv)
 {
-	printf("%s\n", lineCsv);
 	const char virg[2] = ",";
 
 	int i = 0;
@@ -60,7 +59,6 @@ DepDataWeather	*edit_ddw(DepDataWeather *list, char* dep, char* weather, int tem
 	current->temp   		= temp;
 	return (list);
 }
-
 
 DepDataWeather *search_ddw(DepDataWeather *list, char* dep)
 {

@@ -92,10 +92,10 @@ int check_params(int argc, char *argv[])
             printfc(".\n", "green");
             sleep(1);
         }
-        printf("\e[1;1H\e[2J");
-        printf("Server is");
-        printfc(" running \n", "green");
-
     }
+    printf("\e[1;1H\e[2J");
+    printf("Server is");
+    printfc(" running \n", "green");
+    
     return 1;
 }
