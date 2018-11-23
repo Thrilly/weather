@@ -52,7 +52,7 @@ int check_params(int argc, char *argv[])
         // *********** END IP ***********
 
         // *********** VERBOSE ***********
-        } else if(strcmp(argv[i],"--verbose") == 0 || strcmp(argv[i],"-v") == 0) {
+        } else if(strcmp(argv[i],"--verbose") == 0) {
             VERBOSE = 1;
             i--;
         // *********** END VERBOSE ***********
@@ -96,6 +96,6 @@ int check_params(int argc, char *argv[])
     printf("\e[1;1H\e[2J");
     printf("Server is");
     printfc(" running \n", "green");
-    
+
     return 1;
 }

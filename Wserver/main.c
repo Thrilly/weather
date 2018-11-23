@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
 {
     fflush(stdout);
     // Starting control
-    printf("[INFO] - Checking and registering params ...\n");
+    printf("[INFO] - Starting server ...\n");
     sleep(1);
     if (!check_params(argc, argv)) {
         return 0;
